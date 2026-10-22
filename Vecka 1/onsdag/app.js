@@ -7,3 +7,5 @@ music.push({ title: "Song 3", artist: "Artist 3" });
 
 console.log(music);
 console.log("The artist of the second song is: " + music[1].artist);
+
+console.log("The array music has " + music.length + " songs.");
