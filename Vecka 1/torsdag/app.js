@@ -6,6 +6,10 @@ if (isAge >= 15 && hasTicket == true){
     console.log("Välkommen in!")
 }
 
+if else (isAge < 15 && hasTicket = true && withAdult == true){
+    console.log("Okejrå!")
+}
+
 else {
     console.log("Du är ej välkommen!")
 }
