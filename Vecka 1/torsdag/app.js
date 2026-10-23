@@ -11,13 +11,14 @@ if (isAge >= 15 && hasTicket == true){
     approve.textContent = "Du är välkommen!"
 }
 
-else if (isAge < 15 && hasTicket == true && withAdult == true){
+else if (8 <= isAge && isAge < 15 && hasTicket == true && withAdult == true){
     console.log("Okejrå!")
     approve.textContent = "Du är typ välkommen!"
 }
 
 else {
     console.log("Du är ej välkommen!")
+    approve.textContent = "Stick härifrån!"
 }
 
 });
