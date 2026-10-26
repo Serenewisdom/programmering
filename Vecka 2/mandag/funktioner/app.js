@@ -30,3 +30,29 @@ const testAge = (name5, age5, role = "Guest") => {
 const testAgeObject = testAge('Blob', 20, 'student')
 
 console.log(testAgeObject.message)
+
+//Kod som körs i bakgrunden:
+
+const calcPrice = (title, price, moms = 25) => {
+    const total = price * (1 + moms/100);
+    return { titel, totalPrice: total };
+}
+
+//Arrays
+
+const cart = [
+    { name: "Book", price: 120 },
+    { name: "Pencil", price: 25 },
+    { name: "Folder", price: 45 }
+];
+
+const calcTotal = (products) => {
+    let sum = 0;
+    for (const p of products) {
+        sum += p.price
+    }
+    return sum;
+};
+
+const total = calcTotal(cart);
+console.log(`To pay: ${total} kr`);
