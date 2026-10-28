@@ -6,7 +6,7 @@ const list = [
   { name: "Person3", free: false, cash: 25 },
 ];
 
-console.log(`These are the current prices:` + list)
+console.log(`These are the current prices:` , list)
 
 const cashCheck = (list) => {
   for (let i = 0; i <= list.length; i++) {
