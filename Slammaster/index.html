@@ -1,12 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slammaster</title>
+    <link rel=stylesheet href="style.css"><link>
 </head>
 <body>
-    <p>En sida där du skriver upp tid + de fem poängen och som räknar ut vad slutpoängen blir. Lägg upp, dela repo i chatten</p>
+    <main>
+        <h1>Räkna ut poäng</h1>
+        <p>Ange fem poäng mellan 0,0 och 10,0.</p>
+
+        <form id="score-form">
+            <div class="score-input">
+                <label for="score-1">Jury 1</label>
+                <input id="score-1" name="score-1" type="number" min="0" max="10" step="0.1" required>
+            </div>
+            <div class="score-input">
+                <label for="score-2">Jury 2</label>
+                <input id="score-2" name="score-2" type="number" min="0" max="10" step="0.1" required>
+            </div>
+            <div class="score-input">
+                <label for="score-3">Jury 3</label>
+                <input id="score-3" name="score-3" type="number" min="0" max="10" step="0.1" required>
+            </div>
+            <div class="score-input">
+                <label for="score-4">Jury 4</label>
+                <input id="score-4" name="score-4" type="number" min="0" max="10" step="0.1" required>
+            </div>
+            <div class="score-input">
+                <label for="score-5">Jury 5</label>
+                <input id="score-5" name="score-5" type="number" min="0" max="10" step="0.1" required>
+            </div>
+            <div class="score-input">
+                <label for="time-minutes">Tid - minuter</label>
+                <input id="time-minutes" name="time-minutes" type="number" min="0" step="1" required>
+            </div>
+            <div class="score-input">
+                <label for="time-seconds">Tid - sekunder</label>
+                <input id="time-seconds" name="time-seconds" type="number" min="0" max="59" step="1" required>
+            </div>
+        </form>
+
+        <p id="total">Total poäng:</p>
+        <p id="time-penalty"></p>
+    </main>
     <script src="app.js"></script>
 </body>
 </html>
