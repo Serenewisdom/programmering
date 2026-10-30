@@ -42,7 +42,7 @@ function calculateScore() {
 
 //Skriva ut det på sidan
 
-  document.querySelector("#total").textContent = `Total poäng: ${finalScore}`
+  document.querySelector("#total").textContent = `Total poäng: ${finalScore.toFixed(1)}`
 
  if (lateSeconds > 0) {
   document.querySelector("#time-penalty").textContent = `Dikten var ${lateSeconds} sekunder för lång, vilket gav ett avdrag på ${timePenalty} poäng.`
