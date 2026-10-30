@@ -60,3 +60,10 @@ inputs.forEach(input => {
     input.addEventListener("input", calculateScore);
 });
 
+//En funktion som nollställer poängen vid f5
+window.addEventListener("pageshow", () => {
+  document.querySelectorAll("#scores input, #time input").forEach(input => {
+    input.value = "";
+  });
+});
+
