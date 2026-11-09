@@ -13,6 +13,8 @@ const categorySelect = document.getElementById("filter-category");
 const sortSelect = document.getElementById("sort-price");
 const discountBtn = document.getElementById("btn-discount");
 
+let hasDiscount = false;
+
 const updateList = () => {
   //logik för att uppdatera listan
   let result = [...products];
@@ -29,6 +31,18 @@ const updateList = () => {
     result.sort((a, b) => a.price - b.price);
   } else if (sortSelect.value === "high-low") {
     result.sort((a, b) => b.price - a.price);
+  }
+
+// 3. MAP Discount
+  if (hasDiscount){
+    result = result.map(item => {
+      return {
+        name: item.name,
+        category: item.category,
+        price: item.price * 0.8,
+        icon: item.icon
+      }
+    })
   }
 
   render(result);
@@ -55,7 +69,10 @@ const render = (result) => {
 
 categorySelect.addEventListener("change", updateList);
 sortSelect.addEventListener("change", updateList);
-discountBtn.addEventListener("click", updateList);
+discountBtn.addEventListener("click", () => {
+  hasDiscount = true;
+  updateList();
+});
 
 /* categorySelect.addEventListener("change", () => {
   console.log("Här har ändrats till:", categorySelect.value);

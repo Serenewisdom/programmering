@@ -1,0 +1,212 @@
+/* =====================================================================
+   style.css – hur sidan SER UT
+   =====================================================================
+   Färgerna som används:
+     #1f3a5f  mörkblå  (rubriker, knappar)
+     #f4f6f9  ljusgrå  (bakgrund)
+     #ffffff  vit      (rutor)
+     #fff4d6  ljusgul  ("inte byggt"-rutor)
+     #c0392b  röd      (underkänd, ta bort)
+   ===================================================================== */
+
+
+/* ----- Hela sidan ----- */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  color: #222222;
+  max-width: 1100px;
+  margin: 0 auto;      /* centrerar sidan */
+  padding: 20px;
+}
+
+h1 {
+  color: #1f3a5f;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 16px;
+  color: #1f3a5f;
+  margin-top: 0;
+}
+
+.undertitel {
+  color: #666666;
+  margin-top: 4px;
+}
+
+
+/* ----- Rader med rutor bredvid varandra ----- */
+.rad {
+  display: flex;       /* lägger rutorna på rad */
+  gap: 20px;           /* avstånd mellan rutorna */
+  margin-bottom: 20px;
+}
+
+.rad .ruta {
+  flex: 1;             /* alla rutor i en rad blir lika breda */
+}
+
+
+/* ----- En ruta (vit låda) ----- */
+.ruta {
+  background-color: #ffffff;
+  border: 1px solid #dde2ea;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+
+/* ----- Formulär ----- */
+label {
+  display: block;
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+input,
+select {
+  padding: 6px;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Textfälten i rutorna fyller hela bredden */
+.ruta input[type="text"],
+.ruta input[type="number"] {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #1f3a5f;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 14px;
+  margin-top: 12px;
+  font-size: 14px;
+  cursor: pointer;      /* handen när man håller musen över */
+}
+
+button:hover {
+  background-color: #2f5585;
+}
+
+/* En ljusare variant av knapp */
+button.ljus {
+  background-color: #e3e8f0;
+  color: #1f3a5f;
+}
+
+button.ljus:hover {
+  background-color: #d0d8e4;
+}
+
+.tips {
+  font-size: 13px;
+  color: #777777;
+}
+
+
+/* ----- Stora siffror och texter i översiktsrutorna ----- */
+.stor-siffra {
+  font-size: 40px;
+  font-weight: bold;
+  color: #1f3a5f;
+  margin: 0;
+}
+
+.stor-text {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+
+/* ----- "Inte byggt"-rutor ----- */
+.inte-byggt {
+  background-color: #fff4d6;
+  border: 2px dashed #e0b44c;
+  border-radius: 6px;
+  padding: 10px;
+  color: #7a5a00;
+  font-size: 14px;
+}
+
+
+/* ----- Meddelanden högst upp ----- */
+#ruta-meddelande {
+  font-weight: bold;
+  color: #1f3a5f;
+  min-height: 20px;     /* så sidan inte hoppar när texten dyker upp */
+}
+
+
+/* ----- Filter ovanför tabellen ----- */
+.filter {
+  display: flex;
+  gap: 30px;
+  align-items: flex-end;
+  margin-bottom: 12px;
+}
+
+
+/* ----- Tabellen ----- */
+table {
+  width: 100%;
+  border-collapse: collapse;   /* inga dubbla linjer mellan cellerna */
+  margin-top: 10px;
+}
+
+th {
+  text-align: left;
+  background-color: #e3e8f0;
+  color: #1f3a5f;
+  padding: 8px;
+}
+
+td {
+  padding: 8px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* Varannan rad lite gråare – lättare att läsa */
+tr:nth-child(even) td {
+  background-color: #fafbfc;
+}
+
+.underkand {
+  color: #c0392b;
+  font-weight: bold;
+}
+
+button.ta-bort {
+  background-color: #ffffff;
+  color: #c0392b;
+  border: 1px solid #c0392b;
+  margin-top: 0;
+  padding: 4px 10px;
+}
+
+button.ta-bort:hover {
+  background-color: #c0392b;
+  color: #ffffff;
+}
+
+
+/* ----- Sidknappar under tabellen ----- */
+.sidor {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.sidor button {
+  margin-top: 0;
+}

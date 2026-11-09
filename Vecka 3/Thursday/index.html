@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Products</title>
+    <link rel="stylesheet" href="style.css" />
+    <link />
+  </head>
+
+  <body>
+    <!-- HTML Steg 1: Fixa divar -->
+    <div class="container">
+      <div class="controls">
+        <!-- FILTER: Category -->
+        <div class="control-item">
+        <!-- HTML Steg 2: Sätta upp selects -->
+        <label>Kategori:</label>
+        <select id="filter-category">
+          <option value="Alla">Alla</option>
+          <option value="Elektronik">Elektronik</option>
+          <option value="Kläder">Kläder</option>
+        </select>
+        </div>
+        <!-- SORT: Price -->
+        <div class="control-item">
+        <label>Sortera:</label>
+        <select id="sort-price">
+        <option value="normal">Standard</option>
+        <option value="low-high">Lågt-Högt</option>
+        <option value="high-low">Högt-Lågt</option>
+        </select>
+        </div>
+        <!-- DISCOUNT: Price -->
+        <div class="control-item">
+        <label>Rea</label>
+        <button id="btn-discount">Aktivera 20% rabatt</button>
+        </div>
+      </div>
+
+      <!-- products comes in via JS -->
+      <div id="product-container" class="products-container"></div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

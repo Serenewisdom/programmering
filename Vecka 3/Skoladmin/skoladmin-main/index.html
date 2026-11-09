@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Skoladmin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!--
+    index.html – sidans STRUKTUR
+
+    Här finns bara rutor, knappar och fält. Ingen logik.
+
+    - Rutor som ska fyllas med innehåll har ett id, t.ex. id="ruta-antal".
+      JavaScript letar upp rutan med id:t och skriver in text i den.
+    - Knappar har onclick="...". Det betyder: "när någon klickar,
+      kör den här funktionen". Funktionerna finns i app.js.
+    - Kommentaren "Ärende X" talar om vilket ärende i uppgifter.js
+      som hör till rutan.
+  -->
+
+  <h1>Skoladmin</h1>
+  <p class="undertitel">Elevregister för Plusskolan</p>
+
+  <!-- Här visas korta meddelanden, t.ex. "Anna lades till" -->
+  <p id="ruta-meddelande"></p>
+
+
+  <!-- ===== RAD 1: tre små rutor ===== -->
+  <div class="rad">
+
+    <!-- Ärende 1 -->
+    <div class="ruta">
+      <h2>Antal elever</h2>
+      <div id="ruta-antal"></div>
+    </div>
+
+    <!-- Ärende 2 -->
+    <div class="ruta">
+      <h2>Senast tillagd</h2>
+      <div id="ruta-senast"></div>
+    </div>
+
+    <!-- Ärende 11 -->
+    <div class="ruta">
+      <h2>Låg närvaro (under 80 %)</h2>
+      <div id="ruta-varning"></div>
+    </div>
+
+  </div>
+
+
+  <!-- ===== RAD 2: lägga till, rätta och verktyg ===== -->
+  <div class="rad">
+
+    <!-- Ärende 4 och 5 -->
+    <div class="ruta">
+      <h2>Ny elev</h2>
+
+      <label for="input-namn">Namn</label>
+      <input type="text" id="input-namn" placeholder="Förnamn Efternamn">
+
+      <label for="input-klass">Klass</label>
+      <select id="input-klass">
+        <option>1A</option>
+        <option>1B</option>
+        <option>2A</option>
+        <option>2B</option>
+      </select>
+
+      <label for="input-poang">Poäng (0–30)</label>
+      <input type="number" id="input-poang" value="15">
+
+      <label for="input-narvaro">Närvaro (%)</label>
+      <input type="number" id="input-narvaro" value="100">
+
+      <button onclick="klickLaggTill()">Lägg till</button>
+      <button onclick="klickAngra()" class="ljus">Ångra senaste</button>
+    </div>
+
+    <!-- Ärende 3 -->
+    <div class="ruta">
+      <h2>Rätta namn</h2>
+
+      <label for="input-ratta-index">Plats i listan (index)</label>
+      <input type="number" id="input-ratta-index" value="0">
+
+      <label for="input-ratta-namn">Nytt namn</label>
+      <input type="text" id="input-ratta-namn">
+
+      <button onclick="klickRatta()">Spara</button>
+      <p class="tips">Tips: första eleven har index 0.</p>
+    </div>
+
+    <!-- Ärende 7 och 8 -->
+    <div class="ruta">
+      <h2>Verktyg</h2>
+      <button onclick="klickLogga()">Logga närvaro</button>
+      <p class="tips">Resultatet syns i konsolen (F12).</p>
+
+      <button onclick="klickNamnlista()">Skapa namnlista</button>
+      <div id="ruta-namnlista"></div>
+    </div>
+
+  </div>
+
+
+  <!-- ===== RAD 3: tabellen med alla elever ===== -->
+  <div class="ruta">
+    <h2>Alla elever</h2>
+
+    <div class="filter">
+      <!-- Ärende 10 -->
+      <div>
+        <label for="val-klass">Visa klass</label>
+        <select id="val-klass" onchange="filterAndrat()">
+          <option value="alla">Alla klasser</option>
+          <option>1A</option>
+          <option>1B</option>
+          <option>2A</option>
+          <option>2B</option>
+        </select>
+      </div>
+
+      <!-- Ärende 12 -->
+      <div>
+        <label for="val-sok">Sök namn</label>
+        <input type="text" id="val-sok" oninput="filterAndrat()" placeholder="t.ex. anna">
+      </div>
+
+      <!-- Ärende 9 -->
+      <div>
+        <label>
+          <input type="checkbox" id="val-bonus" onchange="filterAndrat()">
+          Visa med bonus (+2)
+        </label>
+      </div>
+    </div>
+
+    <!-- Här skrivs det ut vilka filter som inte är byggda än -->
+    <div id="ruta-filterstatus"></div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Index</th>
+          <th>Id</th>
+          <th>Namn</th>
+          <th>Klass</th>
+          <th>Poäng</th>
+          <th>Närvaro</th>
+          <th></th>
+        </tr>
+      </thead>
+      <!-- Raderna skrivs in här av app.js -->
+      <tbody id="tabell"></tbody>
+    </table>
+
+    <!-- Ärende 13 -->
+    <div class="sidor">
+      <button onclick="klickForegaende()" class="ljus">Föregående</button>
+      <span id="ruta-sida"></span>
+      <button onclick="klickNasta()" class="ljus">Nästa</button>
+    </div>
+  </div>
+
+
+  <!--
+    JavaScript-filerna laddas i ordning uppifrån och ner.
+    En fil kan bara använda saker från filer som laddats FÖRE den.
+      1. data.js       – arrayen med elever
+      2. uppgifter.js  – DINA funktioner
+      3. app.js        – kopplar ihop knappar och rutor med dina funktioner
+  -->
+  <script src="data.js"></script>
+  <script src="uppgifter.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
